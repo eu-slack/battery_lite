@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SOURCE="/sys/class/power_supply/BAT0/"
+
+if [ -d $SOURCE ]
+then
+  STATUS=`cat "$SOURCE"status`
+  FULL=`cat "$SOURCE"charge_full`
+  NOW=`cat "$SOURCE"charge_now`
+
+  FULL=$((FULL / 1000))
+  NOW=$((NOW / 10))
+  PERCENT=$((NOW / FULL))
+
+  echo $PERCENT% $STATUS
+else
+  echo Not present
+fi
+
+exit 0
