@@ -23,7 +23,7 @@ SOURCE="/sys/class/power_supply/BAT0/"
 if [ -d $SOURCE ]
 then
   STATUS=`cat "$SOURCE"status`
-  FULL=`cat "$SOURCE"charge_full`
+  FULL=`cat "$SOURCE"charge_full_design`
   NOW=`cat "$SOURCE"charge_now`
 
   FULL=$((FULL / 100))
